@@ -1,0 +1,23 @@
+{
+   "name": "label",
+   "description": "Implement Labels as a plugin",
+   "key": "label",
+   "version": "0.0.0",
+   "icon": "fa-puzzle-piece",
+   "plugins": [
+      {
+         "name": "View_Label Web",
+         "key": "view_label_web",
+         "platform": "web",
+         "type": "properties",
+         "path": "./ABView_Label_properties.mjs"
+      },
+      {
+         "name": "View_Label Web",
+         "key": "view_label_web",
+         "platform": "web",
+         "type": "view",
+         "path": "./ABView_Label_web.mjs"
+      }
+   ]
+}

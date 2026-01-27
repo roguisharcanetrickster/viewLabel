@@ -1,0 +1,105 @@
+export default function FNViewLabelComponent({
+   AB,
+   ABViewComponentPlugin,
+}) {
+   return class ABViewLabelComponent extends ABViewComponentPlugin {
+      constructor(baseView, idBase, ids) {
+         super(
+            baseView,
+            idBase || `ABViewLabel_${baseView.id}`,
+            Object.assign(
+               {
+                  template: "",
+               },
+               ids,
+            ),
+         );
+      }
+
+      /**
+       * @method ui
+       * return the Webix UI definition for this component.
+       * @return {object} Webix UI definition
+       */
+      ui() {
+         const ui_id = this.ids.template;
+         console.log(this.view)
+         const baseView = this.view
+         baseView.text = this.view.settings.text
+         this.settings = this.view.settings
+         // debugger
+         // const baseView = this.view;
+
+         const _ui = super.ui([
+            this.uiFormatting({
+               view: "label",
+               // css: 'ab-component-header ab-ellipses-text',
+               label: baseView.text || "*",
+               align: this.settings.alignment,
+               type: {
+                  height: "auto",
+               },
+            }),
+         ]);
+
+         delete _ui.type;
+
+         return _ui;
+         return super.ui([
+            {
+               type: "form",
+               view: "template",
+               template: baseView.settings.text || "*isaac",
+               // margin: 10,
+               // padding: 10,
+               // borderless: true,
+               rows: [
+                  {
+                     id: ui_id,
+                     view: "label",
+                     label: baseView.settings.text || "*isaac",
+                     // align: baseView.settings.alignment,
+                  },
+               ]
+            },
+         ]);
+      }
+      /**
+       * @method uiFormatting
+       * a common routine to properly update the displayed label
+       * UI with the css formatting for the given .settings
+       * @param {obj} _ui the current webix.ui definition
+       * @return {obj} a properly formatted webix.ui definition
+       */
+      uiFormatting(ui) {
+         // add different css settings based upon it's format
+         // type.
+         switch (parseInt(this.settings.format)) {
+            // normal
+            case 0:
+               ui.css = "ab-component-label ab-ellipses-text";
+               break;
+
+            // title
+            case 1:
+               ui.css = "ab-component-header ab-ellipses-text";
+               break;
+
+            // description
+            case 2:
+               ui.css = "ab-component-description ab-ellipses-text";
+               break;
+         }
+
+         return ui;
+      }
+      /**
+       * @method onShow
+       * called when the component is shown.
+       * perform any additional initialization here.
+       */
+      onShow() {
+         super.onShow();
+      }
+   };
+}
