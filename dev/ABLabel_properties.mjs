@@ -67,9 +67,7 @@ function FNViewLabelProperties(_ref) {
         var ids = this.ids;
         var L = this.AB.Label();
         var defaultValues = this.defaultValues();
-        var baseView = this.view;
         var initial_text = ((_this$view = this.view) === null || _this$view === void 0 || (_this$view = _this$view.settings) === null || _this$view === void 0 ? void 0 : _this$view.text) || "";
-        var uiConfig = this.AB.Config.uiSettings();
         return _superPropGet(ABViewLabelProperties, "ui", this, 3)([[
         // .text :  The Text displayed for this label
         {
@@ -78,13 +76,12 @@ function FNViewLabelProperties(_ref) {
           name: initial_text || "text",
           label: L("Text"),
           placeholder: L("Text Placeholder"),
-          // labelWidth: this.AB.UISettings.config().labelWidthMedium,
           on: {
             onChange: function onChange(newValue, oldValue) {
               if (newValue !== oldValue) {
-                var _baseView = _this2.CurrentView;
-                _baseView.text = newValue;
-                _baseView.save();
+                var baseView = _this2.CurrentView;
+                baseView.text = newValue;
+                baseView.save();
                 _this2.onChange();
               }
             }
@@ -182,9 +179,6 @@ function FNViewLabelProperties(_ref) {
         $$(ids.text).setValue(view.text);
         $$(ids.format).setValue(view.settings.format);
         $$(ids.alignment).setValue(view.settings.alignment);
-
-        // populate your property values here
-        // $$(ids.height).setValue(view.settings.height);
       }
 
       /**

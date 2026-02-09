@@ -44,21 +44,6 @@ function FNViewLabel(_ref) {
   // the default settings
   var ABViewLabelComponentDefaults = {
     text: ""
-    // {string}
-    // A multilingual text template that is used to display a given set of
-    // values.
-
-    // height: 0,
-    // {integer}
-    // The default height of this widget.
-
-    // dataviewID: null,
-    // {uuid}
-    // The {ABDataCollection.id} of the datacollection this ABViewText is
-    // pulling data from.
-    // In most usage situations this ABView is tied to the data in an
-    // ABDataCollection.  However, it is possible for an ABObject to be
-    // directly assigned to the ABView, and that will be used instead.
   };
 
   // Define the Default Values for this ABView
@@ -127,10 +112,6 @@ function FNViewLabel(_ref) {
       value: function fromValues(values) {
         _superPropGet(ABViewLabel, "fromValues", this, 3)([values]);
         this.settings = this.settings || {};
-
-        //
-        // populate any additional fields here:
-        //
 
         // NOTE: ABView auto translates/untranslates "label"
         // add in any additional fields here:
@@ -238,17 +219,11 @@ function FNViewLabelComponent(_ref) {
     return _createClass(ABViewLabelComponent, [{
       key: "ui",
       value: function ui() {
-        var ui_id = this.ids.template;
-        console.log(this.view);
         var baseView = this.view;
         baseView.text = this.view.settings.text;
         this.settings = this.view.settings;
-        // debugger
-        // const baseView = this.view;
-
         var _ui = _superPropGet(ABViewLabelComponent, "ui", this, 3)([[this.uiFormatting({
           view: "label",
-          // css: 'ab-component-header ab-ellipses-text',
           label: baseView.text || "*",
           align: this.settings.alignment,
           type: {
@@ -257,8 +232,6 @@ function FNViewLabelComponent(_ref) {
         })]]);
         delete _ui.type;
         return _ui;
-        // removed by dead control flow
-
       }
       /**
        * @method uiFormatting

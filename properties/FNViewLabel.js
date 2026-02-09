@@ -4,7 +4,6 @@
 export default function FNViewLabelProperties({
    AB,
    ABViewPropertiesPlugin,
-   // ABUIPlugin,
 }) {
    return class ABViewLabelProperties extends ABViewPropertiesPlugin {
       constructor() {
@@ -39,9 +38,7 @@ export default function FNViewLabelProperties({
          const ids = this.ids;
          let L = this.AB.Label();
          const defaultValues = this.defaultValues();
-         const baseView = this.view
          let initial_text = this.view?.settings?.text || "";
-         const uiConfig = this.AB.Config.uiSettings();
          return super.ui([
             // .text :  The Text displayed for this label
             {
@@ -50,7 +47,6 @@ export default function FNViewLabelProperties({
                name: initial_text || "text",
                label: L("Text"),
                placeholder: L("Text Placeholder"),
-               // labelWidth: this.AB.UISettings.config().labelWidthMedium,
                on: {
                   onChange: (newValue, oldValue) => {
                      if (newValue !== oldValue) {
@@ -143,11 +139,6 @@ export default function FNViewLabelProperties({
       async init(AB) {
          this.AB = AB;
          await super.init(AB);
-
-         //
-         // perform any additional initialization here
-         //
-
       }
 
       /**
@@ -162,9 +153,6 @@ export default function FNViewLabelProperties({
          $$(ids.text).setValue(view.text);
          $$(ids.format).setValue(view.settings.format);
          $$(ids.alignment).setValue(view.settings.alignment);
-
-         // populate your property values here
-         // $$(ids.height).setValue(view.settings.height);
       }
 
       /**

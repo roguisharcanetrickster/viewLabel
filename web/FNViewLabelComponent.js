@@ -22,18 +22,13 @@ export default function FNViewLabelComponent({
        * @return {object} Webix UI definition
        */
       ui() {
-         const ui_id = this.ids.template;
-         console.log(this.view)
          const baseView = this.view
          baseView.text = this.view.settings.text
          this.settings = this.view.settings
-         // debugger
-         // const baseView = this.view;
 
          const _ui = super.ui([
             this.uiFormatting({
                view: "label",
-               // css: 'ab-component-header ab-ellipses-text',
                label: baseView.text || "*",
                align: this.settings.alignment,
                type: {
@@ -45,24 +40,6 @@ export default function FNViewLabelComponent({
          delete _ui.type;
 
          return _ui;
-         return super.ui([
-            {
-               type: "form",
-               view: "template",
-               template: baseView.settings.text || "*isaac",
-               // margin: 10,
-               // padding: 10,
-               // borderless: true,
-               rows: [
-                  {
-                     id: ui_id,
-                     view: "label",
-                     label: baseView.settings.text || "*isaac",
-                     // align: baseView.settings.alignment,
-                  },
-               ]
-            },
-         ]);
       }
       /**
        * @method uiFormatting

@@ -17,21 +17,6 @@ export default function FNViewLabel({
    // the default settings
    const ABViewLabelComponentDefaults = {
       text: "",
-      // {string}
-      // A multilingual text template that is used to display a given set of
-      // values.
-
-      // height: 0,
-      // {integer}
-      // The default height of this widget.
-
-      // dataviewID: null,
-      // {uuid}
-      // The {ABDataCollection.id} of the datacollection this ABViewText is
-      // pulling data from.
-      // In most usage situations this ABView is tied to the data in an
-      // ABDataCollection.  However, it is possible for an ABObject to be
-      // directly assigned to the ABView, and that will be used instead.
    };
 
    // Define the Default Values for this ABView
@@ -120,10 +105,6 @@ export default function FNViewLabel({
          super.fromValues(values);
 
          this.settings = this.settings || {};
-
-         //
-         // populate any additional fields here:
-         //
 
          // NOTE: ABView auto translates/untranslates "label"
          // add in any additional fields here:
