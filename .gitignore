@@ -1,18 +1,16 @@
 
 // node modules
 node_modules
-
+dev/*
+x
 // temporary files
 .tmp
-leftOffHere.txt
 
 // misc
 *.map
 *~
 *#
 .DS_STORE
-.netbeans
-nbproject
 .idea
 .node_history
 dump.rdb
